@@ -6,6 +6,9 @@ from users.models import Users
 class Region(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         db_table = 'region'
 
@@ -41,7 +44,6 @@ class Adver(models.Model):
     price = models.CharField(max_length=255)
     image_url = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now=True)
-
 
     def __str__(self):
         return self.title

@@ -1,9 +1,9 @@
 import shutil
 from django.shortcuts import render, get_object_or_404
-from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, RetrieveAPIView
 from rest_framework.views import APIView
-from .serializers import AdverSerializer
-from .models import Adver, Street, Adver_type
+from .serializers import AdverSerializer, StreetSerializer, RegionSerializer, Adver_typeSerializer
+from .models import Adver, Street, Adver_type, Region
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from rest_framework.response import Response
@@ -123,7 +123,27 @@ class AdverDeleteView(DestroyAPIView):
         return Response({'message': "Content o'chirildi"}, status=status.HTTP_204_NO_CONTENT)
 
 
+class StreetView(APIView):
+    permission_classes = [IsAuthenticated]
 
+    def get(self, request, pk):
+        region = get_object_or_404(Region, id=pk)
+        streets = Street.objects.filter(region=region)
+        serializer = StreetSerializer(streets, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class RegionView(ListAPIView):
+    queryset = Region.objects.all()
+    serializer_class = RegionSerializer
+    permission_classes = [IsAuthenticated]
+
+
+
+class AdverTypeView(ListAPIView):
+    queryset = Adver_type.objects.all()
+    serializer_class = Adver_typeSerializer
+    permission_classes = [IsAuthenticated]
 
 
 def generate_random_string(length):
