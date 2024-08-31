@@ -6,3 +6,4 @@ class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
         fields = ['user', 'message', 'created_at']
+
