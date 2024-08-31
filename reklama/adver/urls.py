@@ -11,5 +11,4 @@ urlpatterns = [
     path('get_street/<int:pk>/', StreetView.as_view(), name='get-street'),
     path('get_region/', RegionView.as_view(), name='get-region'),
     path('adver_type/', AdverTypeView.as_view(), name='get-adver-type'),
-    path('adver_type/', AdverTypeView.as_view(), name='get-adver-type'),
 ]
