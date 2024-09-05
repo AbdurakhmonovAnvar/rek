@@ -66,6 +66,9 @@ class UpdateUserView(APIView):
 
 
 class DeleteUserView(APIView):
+    queryset = Users.objects.all()
+    serializer_class = UserSerializers
+    permission_classes = [IsAuthenticated]
     def get(self, request, *args, **kwargs):
         user = request.user
         user.status = 'deactive'
@@ -88,7 +91,7 @@ class UserRegisterView(APIView):
         phone_number = requst.data.get('phone_number', '')
         email = requst.data.get('email', '')
         if Users.objects.filter(username=username):  # or Users.objects.filter(email=email):
-            return Response({'message': "Bunday user tizimda mavjud "})
+            return Response({'message': "Bunday user tizimda mavjud "}, status=status.HTTP_400_BAD_REQUEST)
         if not [username, password, email]:
             return Response({'message': "Kerakli fieldlar mavjud emas"}, status=status.HTTP_400_BAD_REQUEST)
 
