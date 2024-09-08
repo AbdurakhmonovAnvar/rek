@@ -4,10 +4,12 @@ from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, 
 from rest_framework.views import APIView
 from .serializers import AdverSerializer, StreetSerializer, RegionSerializer, Adver_typeSerializer
 from .models import Adver, Street, Adver_type, Region
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 from rest_framework.response import Response
 from django.core.files.storage import FileSystemStorage
+from django_filters.rest_framework import DjangoFilterBackend
+from .filters import AdverFilter
 import string
 import random
 import os
@@ -139,11 +141,25 @@ class RegionView(ListAPIView):
     permission_classes = [IsAuthenticated]
 
 
-
 class AdverTypeView(ListAPIView):
     queryset = Adver_type.objects.all()
     serializer_class = Adver_typeSerializer
     permission_classes = [IsAuthenticated]
+
+
+class AdverGetFilter(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        queryset = Adver.objects.all()
+
+        filterset = AdverFilter(request.GET, queryset=queryset)
+
+        if filterset.is_valid():
+            queryset = filterset.qs
+
+        serializer = AdverSerializer(queryset, many=True)
+        return Response(serializer.data)
 
 
 def generate_random_string(length):

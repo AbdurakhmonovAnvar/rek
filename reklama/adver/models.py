@@ -42,6 +42,8 @@ class Adver(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     status = models.CharField(max_length=255)
     price = models.CharField(max_length=255)
+    price_type_choices = [('sum', 'Sum'), ('$', 'Dollar$')]
+    price_type = models.CharField(max_length=20, choices=price_type_choices, default='sum')
     image_url = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now=True)
 

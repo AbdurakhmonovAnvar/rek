@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'message',
     'rest_framework',
     'rest_framework_simplejwt',
+    # 'django-filters',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -49,6 +50,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'users.authentication.CustomJWTAuthentication',
     ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 # AUTH_USER_MODEL = 'users.Users'

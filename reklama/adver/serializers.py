@@ -9,7 +9,7 @@ class AdverSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Adver
-        fields = ['title', 'content', 'address', 'contact', 'street', 'type', 'user', 'status', 'price',
+        fields = ['title', 'content', 'address', 'contact', 'street', 'type', 'user', 'status', 'price', 'price_type',
                   'created_at', 'image', 'image_url']
 
 
