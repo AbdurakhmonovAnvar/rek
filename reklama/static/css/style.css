@@ -1,0 +1,138 @@
+body {
+    margin: 0; /* Default marginni olib tashlaydi */
+    padding: 0; /* Default paddingni olib tashlaydi */
+    width: 100%; /* To'liq kenglik */
+    height: 100vh; /* To'liq balandlik (viewport balandligi) */
+    background-color: #007bff; /* Fon rangini o'rnatadi */
+    font-family: Arial, sans-serif; /* Yozuv turini o'rnatadi */
+    font-size: 16px; /* Matn hajmini belgilaydi */
+    color: #333; /* Matn rangini belgilaydi */
+    display: flex; /* Flexbox tizimini qo'llaydi */
+    flex-direction: column; /* Vertikal yo'nalishda joylashtiradi */
+    justify-content: center; /* Kontentni gorizontal markazlashtiradi */
+    align-items: center; /* Kontentni vertikal markazlashtiradi */
+    overflow-x: hidden; /* Gorizontal scrollni yashiradi */
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+    width: 100%; /* To'liq kenglik */
+}
+
+nav .logo {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    color: white;
+    cursor: pointer;
+}
+
+nav ul li a {
+    color: white; /* Oq rangdagi matn */
+    text-decoration: none; /* Undirishni olib tashlash */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Hover holatida undirishni qo'shish */
+}
+
+#main-content {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    justify-content: center; /* Markazga moslashtirish */
+    align-items: flex-start; /* Yuqoridan joylashish */
+    width: 76%; /* Kenglikni 10% ga kamaytirish */
+    height: 81vh; /* Balandlikni 10% ga kamaytirish (90% x 90vh) */
+}
+
+#content-container {
+    display: flex;
+    width: 100%; /* Kenglikni to'liq qilish */
+    height: 100%; /* Balandlikni to'liq qilish */
+}
+
+#filter {
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 200px; /* Filterni kengligini biroz oshirdik */
+    box-sizing: border-box;
+}
+
+#content {
+    flex: 1; /* Qolgan joyni egallash */
+    padding: 20px;
+    background-color: white;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#filterForm label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#filterForm input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.currency-input {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.currency-input select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#content div {
+    background-color: #ddd;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%; /* To'liq kenglik */
+}
+
+@media (max-width: 768px) {
+    #content-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #filter {
+        width: 100%;
+        height: auto;
+    }
+}

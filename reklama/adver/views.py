@@ -162,6 +162,10 @@ class AdverGetFilter(APIView):
         return Response(serializer.data)
 
 
+def home(request):
+    return render(request, 'home.html')
+
+
 def generate_random_string(length):
     letters = string.ascii_lowercase  # Kichik harflarni tanlash
     random_string = ''.join(random.choice(letters) for _ in range(length))

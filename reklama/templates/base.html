@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Sahifa Tuzilishi</title>
+
+    <!-- Statik teglashni yuklash -->
+    {% load static %}
+
+    <!-- Statik CSS fayllarni ulash -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<!-- Saytning kontenti -->
+<nav>
+    <div class="logo">Logo</div>
+    <ul>
+        <li><a href="">Login</a></li>
+        <li><a href="">Register</a></li>
+        <li>
+            <select>
+                <option value="uz">Uzbek</option>
+                <option value="ru">Russian</option>
+            </select>
+        </li>
+    </ul>
+</nav>
+<div id="main-content">
+    <!-- Kontent joyi -->
+    {% block content %}
+    {% endblock %}
+</div>
+
+<footer>
+    Footer
+</footer>
+
+<!-- Statik JavaScript fayllarni ulash -->
+<!--<script src="{% static 'js/script.js' %}"></script>-->
+</body>
+</html>
