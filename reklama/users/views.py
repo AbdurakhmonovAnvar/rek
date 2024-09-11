@@ -69,6 +69,7 @@ class DeleteUserView(APIView):
     queryset = Users.objects.all()
     serializer_class = UserSerializers
     permission_classes = [IsAuthenticated]
+
     def get(self, request, *args, **kwargs):
         user = request.user
         user.status = 'deactive'
@@ -144,3 +145,15 @@ class UserRegisterTelView(APIView):
                 'user': UserCreateSerializer(user).data
             }, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+def user(request):
+    return render(request, 'user_profile.html')
+
+
+def login(request):
+    return render(request, 'login.html')
+
+
+def register(request):
+    return render(request, 'register.html')

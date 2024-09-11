@@ -16,16 +16,20 @@
 <nav>
     <div class="logo">Logo</div>
     <ul>
-        <li><a href="">Login</a></li>
-        <li><a href="">Register</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
         <li>
             <select>
                 <option value="uz">Uzbek</option>
                 <option value="ru">Russian</option>
             </select>
         </li>
+        <li><a href="/logout">Logout</a></li>
+
+
     </ul>
 </nav>
+
 <div id="main-content">
     <!-- Kontent joyi -->
     {% block content %}
@@ -37,6 +41,6 @@
 </footer>
 
 <!-- Statik JavaScript fayllarni ulash -->
-<!--<script src="{% static 'js/script.js' %}"></script>-->
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

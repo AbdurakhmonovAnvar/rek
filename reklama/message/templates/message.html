@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="message-container">
+
+    <div id="message-list">
+        <div id="message-form">
+            <textarea id="message-input" placeholder="Xabar yozing..."></textarea>
+            <button id="send-button">Yuborish</button>
+        </div>
+        <!-- Yuborilgan xabarlar bu yerda ko'rsatiladi -->
+        <div class="message">
+            <p>Bu yerda xabar ko'rsatiladi.</p>
+        </div>
+        <!-- Ko'proq xabarlar qo'shishingiz mumkin -->
+    </div>
+</div>
+{% endblock %}

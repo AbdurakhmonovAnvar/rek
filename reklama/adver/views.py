@@ -25,6 +25,21 @@ class AdverGetView(ListAPIView):
         return Adver.objects.filter(user=user)
 
 
+class RandomAdver(APIView):
+    # queryset = Adver.objects.all()
+
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        ads = Adver.objects.all()
+        if ads:
+            sads = random.sample(list(ads), min(5, ads.count()))
+
+            serializer = AdverSerializer(sads, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response({'detail': "No ads"}, status=status.HTTP_404_NOT_FOUND)
+
+
 class AdverCreateView(APIView):
     queryset = Adver.objects.all()
     serializer_class = AdverSerializer
@@ -148,7 +163,7 @@ class AdverTypeView(ListAPIView):
 
 
 class AdverGetFilter(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def get(self, request, *args, **kwargs):
         queryset = Adver.objects.all()

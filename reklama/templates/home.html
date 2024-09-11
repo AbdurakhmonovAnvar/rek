@@ -1,40 +1,42 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <div id="content-container">
-        <!-- Filter div -->
-        <div id="filter">
-            <div id="filterForm">
-                <label for="region">Viloyat:</label>
-                <input type="text" id="region" name="region" placeholder="Viloyatni kiriting">
+<div id="content-container">
+    <!-- Filter div -->
+    <div id="filter">
+        <div id="filterForm">
+            <label for="region">Viloyat:</label>
+            <input type="text" id="region" name="region" placeholder="Viloyatni kiriting">
 
-                <label for="city">Shahar:</label>
-                <input type="text" id="city" name="city" placeholder="Shaharni kiriting">
+            <label for="city">Shahar:</label>
+            <input type="text" id="city" name="city" placeholder="Shaharni kiriting">
 
-                <label for="type">Tur:</label>
-                <input type="text" id="type" name="type" placeholder="Turini kiriting">
+            <label for="type">Tur:</label>
+            <input type="text" id="type" name="type" placeholder="Turini kiriting">
 
-                <label for="startPrice">Boshlang'ich narx:</label>
-                <input type="number" id="startPrice" name="startPrice" placeholder="Boshlang'ich narx">
+            <label for="startPrice">Boshlang'ich narx:</label>
+            <input type="number" id="startPrice" name="startPrice" placeholder="Boshlang'ich narx">
 
-                <label for="endPrice">Tugaydigan narx:</label>
-                <input type="number" id="endPrice" name="endPrice" placeholder="Tugaydigan narx">
+            <label for="endPrice">Tugaydigan narx:</label>
+            <input type="number" id="endPrice" name="endPrice" placeholder="Tugaydigan narx">
 
-                <div class="currency-input">
-                    <select id="currencyType">
-                        <option value="sum">sum</option>
-                        <option value="ye">y.e</option>
-                    </select>
-                </div>
+            <div class="currency-input">
+                <select id="currencyType">
+                    <option value="sum">sum</option>
+                    <option value="ye">y.e</option>
+                </select>
             </div>
-        </div>
 
-        <!-- Content div -->
-        <div id="content">
-            <div>Kontent 1</div>
-            <div>Kontent 2</div>
-            <div>Kontent 3</div>
-            <div>Kontent 4</div>
+            <!-- Submit Button -->
+            <button id="filterButton" type="button">Filterlash</button>
         </div>
     </div>
+
+    <!-- Content div -->
+    <div id="content"></div>
+</div>
+
+<!-- JS script chaqirilishi -->
+<script src="{% static 'js/adver.js' %}"></script>
 {% endblock %}

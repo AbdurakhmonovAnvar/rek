@@ -63,3 +63,5 @@ class MessageUpdateView(UpdateAPIView):
         return Response({'message': "O'zgartirildi"})
 
 
+def msg(request):
+    return render(request, 'message.html')
