@@ -5,5 +5,4 @@ from .models import Message
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
-        fields = ['user', 'message', 'created_at']
-
+        fields = ['id', 'user', 'message', 'created_at']
