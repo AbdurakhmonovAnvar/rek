@@ -1,3 +1,4 @@
+from django.contrib.auth import logout
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -81,6 +82,12 @@ class DeleteUserView(APIView):
         return Response({'message': "User deactivlantirildi"})
 
 
+class LogoutView(APIView):
+    def post(self, request, *args, **kwargs):
+        logout(request)  # Foydalanuvchini logout qilish
+        return Response({'success': True})
+
+
 class UserRegisterView(APIView):
     queryset = Users.objects.all()
     serializer_class = UserCreateSerializer
@@ -157,3 +164,10 @@ def login(request):
 
 def register(request):
     return render(request, 'register.html')
+
+
+def post_adver(request):
+    return render(request, 'post_adver.html')
+
+def my_ads(request):
+    return render(request, 'my_ads.html')

@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import UserGetView, CustomTokenObtainView, UpdateUserView, DeleteUserView, UserRegisterView, \
-    UserRegisterTelView
+    UserRegisterTelView,LogoutView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from . import views
 
@@ -12,7 +12,10 @@ urlpatterns = [
     path('api/v1/user/delete/', DeleteUserView.as_view(), name='user-delete'),
     path('api/v1/user/create/', UserRegisterView.as_view(), name='user-create'),
     path('api/v1/user/create/tel/', UserRegisterTelView.as_view(), name='user-create-tel'),  # tel raqam bn registr
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('user/', views.user, name='user-view'),
     path('login/', views.login, name='user-login'),
     path('register/', views.register, name='user-login'),
+    path('post/', views.post_adver, name='user-post'),
+    path('my_ads/', views.my_ads, name='user-my-ads'),
 ]

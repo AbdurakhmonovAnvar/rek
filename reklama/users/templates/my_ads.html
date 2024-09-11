@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="my-ads-container">
+    <h1>My Ads</h1>
+    <div id="ads-list">
+        <!-- E'lonlar avtomatik ravishda JS yordamida qo'shiladi -->
+    </div>
+</div>
+<script src="{% static 'js/my_ads.js' %}"></script>
+{% endblock %}

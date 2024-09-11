@@ -4,7 +4,7 @@ from .views import AdverGetView, AdverCreateView, AdverUpdateView, AdverDeleteVi
 from . import views
 
 urlpatterns = [
-    path('api/v1adver/', AdverGetView.as_view(), name='adver-get'),  # elonlarni list qilib yuboradi
+    path('api/v1/adver/', AdverGetView.as_view(), name='adver-get'),  # elonlarni list qilib yuboradi
     path('api/v1/random_adver/', RandomAdver.as_view(), name='adver-random'),  # elonlarni list qilib yuboradi
     path('api/v1/adver_post/', AdverCreateView.as_view(), name='adver-create'),  # elonlarni post qilsa bo'ladi
     # path('adver/', AdverGetView.as_view(), name='adver-get'),

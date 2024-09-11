@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div id="message-container">
 
     <div id="message-list">
-        <div id="message-form">
-            <textarea id="message-input" placeholder="Xabar yozing..."></textarea>
-            <button id="send-button">Yuborish</button>
-        </div>
-        <!-- Yuborilgan xabarlar bu yerda ko'rsatiladi -->
-        <div class="message">
-            <p>Bu yerda xabar ko'rsatiladi.</p>
-        </div>
-        <!-- Ko'proq xabarlar qo'shishingiz mumkin -->
+        <!-- Messages will be dynamically added here -->
+    </div>
+
+    <div id="message-form">
+        <textarea id="message-input" placeholder="Xabar yozing..."></textarea>
+        <button id="send-button">Yuborish</button>
     </div>
 </div>
+
+<!-- Include the external JavaScript file -->
+<script src="{% static 'js/msg.js' %}"></script>
 {% endblock %}

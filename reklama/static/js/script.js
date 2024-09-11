@@ -1,9 +1,6 @@
-// nav.js
 document.addEventListener('DOMContentLoaded', () => {
     const loginLink = document.querySelector('nav ul li a[href="/login"]');
     const registerLink = document.querySelector('nav ul li a[href="/register"]');
-    const userInfoDiv = document.createElement('li');
-    userInfoDiv.id = 'user-info';
     const nav = document.querySelector('nav ul');
 
     // Cookie'ni olish funksiyasi
@@ -25,9 +22,25 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
-            // Username'ni ko'rsatish
+            // Username'ni select menyuga qo'shish
             const username = data.username;
-            userInfoDiv.innerHTML = `<span>${username}</span>`;
+            const selectElement = document.createElement('select');
+            selectElement.id = 'user-info';
+            selectElement.innerHTML = `<option>${username}</option>`;
+
+            // Dropdown opsiyalarini qo'shish
+            const options = [
+                { text: "E'lon yozish", value: "/post" },
+                { text: "Mening e'lonlarim", value: "/my_ads" },
+                { text: "Adminga xabar qoldirish", value: "/msg" }
+            ];
+
+            options.forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option.value;
+                optionElement.textContent = option.text;
+                selectElement.appendChild(optionElement);
+            });
 
             // Login va Register havolalarini yashirish
             if (loginLink) {
@@ -38,7 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // User info'ni navga qo'shish
-            nav.appendChild(userInfoDiv);
+            nav.appendChild(selectElement);
+
+            // Select menyu tanloviga qo'shimcha funksiyalar
+            selectElement.addEventListener('change', (event) => {
+                const selectedValue = event.target.value;
+                if (selectedValue) {
+                    window.location.href = selectedValue;
+                }
+            });
         })
         .catch(error => {
             console.error('Error fetching user data:', error);
