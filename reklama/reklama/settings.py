@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'message',
     'rest_framework',
     'rest_framework_simplejwt',
-    # 'django-filters',
+    # 'django-filter',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (

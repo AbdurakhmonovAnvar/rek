@@ -7,6 +7,6 @@ urlpatterns = [
     path('api/v1/message/<int:pk>/', MessageDeleteView.as_view(), name='message-delete'),  # delete
     path('api/v1/message_create/', MessageCreateView.as_view(), name='message-create'),  # message post
     path('api/v1/message_update/<int:pk>/', MessageUpdateView.as_view(), name='message-update'),  # update
-    path('msg/', views.msg, name='msg'),  # update
+    # path('msg/', views.msg, name='msg'),  # update
 
 ]
