@@ -41,7 +41,7 @@ class Adver(models.Model):
     type = models.ForeignKey(Adver_type, on_delete=models.CASCADE)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     status = models.CharField(max_length=255)
-    price = models.CharField(max_length=255)
+    price = models.CharField(max_length=255, default='deactive')
     price_type_choices = [('sum', 'Sum'), ('$', 'Dollar$')]
     price_type = models.CharField(max_length=20, choices=price_type_choices, default='sum')
     image_url = models.CharField(max_length=255)
