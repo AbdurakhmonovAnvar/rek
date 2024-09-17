@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # 'django-filter',
 ]
 REST_FRAMEWORK = {
+
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
@@ -74,6 +75,7 @@ SIMPLE_JWT = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Qo'shish
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -82,6 +84,21 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",  # Ruxsat berilgan domenlar
+    "https://sub.example.com",
+]
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.example\.com$",
+]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'accept',
+    'x-requested-with',
+    'authorization',
+]
+
 
 ROOT_URLCONF = 'reklama.urls'
 
